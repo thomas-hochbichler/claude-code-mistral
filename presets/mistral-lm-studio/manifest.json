@@ -1,0 +1,26 @@
+{
+  "name": "mistral-lm-studio",
+  "version": "1.0.0",
+  "description": "Route Claude Code through a local LM Studio instance running Mistral models — data never leaves your machine",
+  "author": "hochbichler.com",
+  "keywords": ["mistral", "local", "lm-studio", "offline", "privacy"],
+  "Providers": [
+    {
+      "name": "lm-studio",
+      "api_base_url": "http://localhost:1234/v1/chat/completions",
+      "api_key": "lm-studio",
+      "models": [
+        "mistralai/devstral-small-2-2512"
+      ],
+      "transformer": {
+        "use": ["cleancache", "stripreasoning"]
+      }
+    }
+  ],
+  "Router": {
+    "default": "lm-studio,mistralai/devstral-small-2-2512",
+    "background": "lm-studio,mistralai/devstral-small-2-2512",
+    "longContextThreshold": 60000
+  },
+  "schema": []
+}

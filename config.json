@@ -1,0 +1,36 @@
+{
+  "APIKEY": "sk-mistral-router",
+  "LOG": true,
+  "LOG_LEVEL": "info",
+  "transformers": [
+    {
+      "path": "plugins/strip-reasoning.js"
+    }
+  ],
+  "Providers": [
+    {
+      "name": "mistral",
+      "api_base_url": "https://api.mistral.ai/v1/chat/completions",
+      "api_key": "$MISTRAL_API_KEY",
+      "models": [
+        "devstral-latest",
+        "codestral-latest",
+        "mistral-large-latest",
+        "mistral-small-latest"
+      ],
+      "transformer": {
+        "use": ["cleancache", "stripreasoning"]
+      }
+    }
+  ],
+  "Router": {
+    "default": "mistral,devstral-latest",
+    "background": "mistral,mistral-small-latest",
+    "think": "mistral,mistral-large-latest",
+    "longContext": "mistral,mistral-large-latest",
+    "longContextThreshold": 60000
+  },
+  "StatusLine": {
+    "enabled": true
+  }
+}

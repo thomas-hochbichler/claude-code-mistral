@@ -1,0 +1,26 @@
+{
+  "name": "mistral-ollama",
+  "version": "1.0.0",
+  "description": "Route Claude Code through a local Ollama instance running Mistral models — data never leaves your machine",
+  "author": "hochbichler.com",
+  "keywords": ["mistral", "local", "ollama", "offline", "privacy"],
+  "Providers": [
+    {
+      "name": "ollama",
+      "api_base_url": "http://localhost:11434/v1/chat/completions",
+      "api_key": "ollama",
+      "models": [
+        "devstral-small:latest"
+      ],
+      "transformer": {
+        "use": ["cleancache", "stripreasoning"]
+      }
+    }
+  ],
+  "Router": {
+    "default": "ollama,devstral-small:latest",
+    "background": "ollama,devstral-small:latest",
+    "longContextThreshold": 60000
+  },
+  "schema": []
+}

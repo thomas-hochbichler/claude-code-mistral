@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+.env.*
+
+# claude-code-router local artifacts
+~/.claude-code-router/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Claude Code / Specify
+.claude/
+.specify/
+CLAUDE.md
+product-brief.md
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Local config overrides
+config.local.json

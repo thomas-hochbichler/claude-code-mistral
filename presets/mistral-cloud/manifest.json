@@ -1,0 +1,38 @@
+{
+  "name": "mistral-cloud",
+  "version": "1.0.0",
+  "description": "Route Claude Code through Mistral.ai's EU-hosted API for GDPR-compliant AI coding",
+  "author": "hochbichler.com",
+  "keywords": ["mistral", "eu", "gdpr", "cloud", "compliance"],
+  "Providers": [
+    {
+      "name": "mistral",
+      "api_base_url": "https://api.mistral.ai/v1/chat/completions",
+      "api_key": "{{apiKey}}",
+      "models": [
+        "devstral-latest",
+        "codestral-latest",
+        "mistral-large-latest",
+        "mistral-small-latest"
+      ],
+      "transformer": {
+        "use": ["cleancache", "stripreasoning"]
+      }
+    }
+  ],
+  "Router": {
+    "default": "mistral,devstral-latest",
+    "background": "mistral,mistral-small-latest",
+    "think": "mistral,mistral-large-latest",
+    "longContext": "mistral,mistral-large-latest",
+    "longContextThreshold": 60000
+  },
+  "schema": [
+    {
+      "id": "apiKey",
+      "type": "password",
+      "label": "Mistral API Key",
+      "prompt": "Enter your Mistral API key (from console.mistral.ai)"
+    }
+  ]
+}
