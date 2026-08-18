@@ -13,7 +13,7 @@ Route Claude Code through Mistral.ai's EU-hosted API for GDPR-compliant AI-assis
 - **Node.js** >= 20.0.0 (`node --version`)
 - **Claude Code** installed (`claude --version`)
 - **Mistral API Key** from [console.mistral.ai](https://console.mistral.ai)
-
+- ** installs claude-code-router@2.0.0 as ccr. ccr > 2.0.0 has a different interface, not compatible with this repo claude-code-mistral.
 ```bash
 git clone https://github.com/hochbichler/claude-code-mistral.git
 cd claude-code-mistral
@@ -93,14 +93,14 @@ Then use `claude` directly — requests route through Mistral automatically.
 
 ## Troubleshooting
 
-| Symptom | Cause | Fix |
-|---------|-------|-----|
-| 422 API Error (`cache_control`) | Missing `cleancache` transformer | Verify `config.json` includes `"cleancache"` in transformer `use` array |
-| 422 API Error (`reasoning`) | Missing `stripreasoning` transformer | Run `setup.sh` or copy `plugins/strip-reasoning.js` to `~/.claude-code-router/plugins/` and add `"stripreasoning"` to `use` array |
-| `MISTRAL_API_KEY not set` | Missing environment variable | `export MISTRAL_API_KEY="your-key"` |
-| Node.js version error | Node < 20 | Install Node.js 20+ via nvm or the official installer |
-| Connection timeout | API unreachable | Check network, verify API key at [console.mistral.ai](https://console.mistral.ai) |
-| Existing config warning | Config already exists | `setup.sh` prompts before overwriting; backup at `config.json.bak` |
+| Symptom                           | Cause                                 | Fix                                                                                                                                        |
+| --------------------------------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| 422 API Error (`cache_control`) | Missing`cleancache` transformer     | Verify`config.json` includes `"cleancache"` in transformer `use` array                                                               |
+| 422 API Error (`reasoning`)     | Missing`stripreasoning` transformer | Run`setup.sh` or copy `plugins/strip-reasoning.js` to `~/.claude-code-router/plugins/` and add `"stripreasoning"` to `use` array |
+| `MISTRAL_API_KEY not set`       | Missing environment variable          | `export MISTRAL_API_KEY="your-key"`                                                                                                      |
+| Node.js version error             | Node < 20                             | Install Node.js 20+ via nvm or the official installer                                                                                      |
+| Connection timeout                | API unreachable                       | Check network, verify API key at[console.mistral.ai](https://console.mistral.ai)                                                            |
+| Existing config warning           | Config already exists                 | `setup.sh` prompts before overwriting; backup at `config.json.bak`                                                                     |
 
 ## Companion Article Series
 
