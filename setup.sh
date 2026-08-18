@@ -77,7 +77,7 @@ fi
 # --- Installation ---
 
 info "Installing claude-code-router..."
-if ! npm install -g @musistudio/claude-code-router; then
+if ! npm install -g @musistudio/claude-code-router@2.0.0; then
   fail "Failed to install claude-code-router. Check your npm permissions or try: sudo npm install -g @musistudio/claude-code-router"
 fi
 ok "claude-code-router installed"
